@@ -1,15 +1,15 @@
 import re
 
-def normalize_phone(phone_number):
-    cleaned_number = re.sub(r'\D', '', phone_number)
-    if cleaned_number.startswith('+'):
-        return cleaned_number
-    elif cleaned_number.startswith('380'):
-        return '+' + cleaned_number
-    else:
-        return '+38' + cleaned_number
+def normalize_phone(phone_num): 
+    cleaned_number  = r"[\d\+]+"                  
+    phone_num = "".join(re.findall(cleaned_number, phone_num))
+    if len(phone_num) == 10:                          
+        phone_num = "+38" + phone_num                
+    elif len(phone_num) == 12:
+        phone_num = "+" + phone_num
+    return phone_num 
     
 
-numbers =["    +38(050)123ва-32-34", "     0503451234", "(050)8в п88п 9900", "38050-11о а  1-22-22", "38050 1  рм11 22 11   "]    
+numbers =["    432 11 222 22 22", "     +123456789012 ", "(050)8в п88п 9900", "38050-11о а  1-22-22", "38050 1  рм11 22 11   "]    
 sanitized_numbers = [normalize_phone(num) for num in numbers]
 print("Нормалізовані номери телефонів для SMS-розсилки:", sanitized_numbers)
