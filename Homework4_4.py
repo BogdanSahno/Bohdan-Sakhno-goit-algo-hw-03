@@ -18,6 +18,6 @@ def get_upcoming_birthdays(users):
     return list_birthdays
 
 
-users = [{"name": "John Doe", "birthday": "1985.12.31"}, {"name": "Jane Smith", "birthday": "1990.02.03"}]
+users = [{"name": "John Doe", "birthday": "1985.12.31"}, {"name": "Jane Smith", "birthday": "1990.01.01"}]
 upcoming_birthdays = get_upcoming_birthdays(users)
 print("Список привітань на цьому тижні:", upcoming_birthdays)
